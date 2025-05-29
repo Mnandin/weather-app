@@ -5,12 +5,24 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.weatherapp.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.weatherapp.WeatherController"
+            prefHeight="600.0" prefWidth="900.0">
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="City:"/>
+                <TextField fx:id="cityField" promptText="Enter city name" HBox.hgrow="ALWAYS" onAction="#searchWeather"/>
+                <Button text="Search" onAction="#searchWeather"/>
+                <ToggleButton fx:id="unitToggle" text="°C" onAction="#toggleUnit"/>
+            </HBox>
+            <Label fx:id="statusLabel" text="Enter a city name to get weather information" styleClass="status-label"/>
+        </VBox>
+    </top>
+
+</BorderPane>
