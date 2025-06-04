@@ -11,7 +11,8 @@ public class WeatherApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(WeatherApp.class.getResource("weather-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 650);
+        Scene scene = new Scene(fxmlLoader.load(), 650, 650);
+        scene.getStylesheets().add(getClass().getResource("/com/example/weatherapp/styles/styles.css").toExternalForm());
         stage.setTitle("Weather App");
         stage.setScene(scene);
         stage.show();
